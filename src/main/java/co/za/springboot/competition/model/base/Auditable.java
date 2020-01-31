@@ -1,13 +1,16 @@
-package co.za.omf.visa.model.base;
+package co.za.springboot.competition.model.base;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import javax.persistence.MappedSuperclass;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
@@ -16,14 +19,8 @@ import java.util.Date;
 @Setter(AccessLevel.PROTECTED)
 @MappedSuperclass
 public class Auditable {
-    @CreatedDate
-    private Date dateCreated;
-
-    @LastModifiedDate
-    private Date lastUpdated;
-
-    public Auditable(Date dateCreated, Date lastUpdated) {
-        this.dateCreated = dateCreated;
-        this.lastUpdated = lastUpdated;
-    }
+    @CreationTimestamp
+    protected LocalDateTime createDateTime;
+    @UpdateTimestamp
+    protected LocalDateTime updateDateTime;
 }

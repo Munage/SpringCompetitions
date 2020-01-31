@@ -1,4 +1,4 @@
-package co.za.omf.visa;
+package co.za.springboot.competition;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(VisaApplication.class);
+        return application.sources(SpringCompetitionApplication.class);
     }
 
 }

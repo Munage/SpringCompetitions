@@ -1,10 +1,10 @@
-package co.za.omf.visa;
+package co.za.springboot.competition;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VisaApplicationTests {
+class SpringCompetitionApplicationTests {
 
     @Test
     void contextLoads() {

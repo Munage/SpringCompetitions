@@ -1,13 +1,13 @@
-package co.za.omf.visa;
+package co.za.springboot.competition;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VisaApplication {
+public class SpringCompetitionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(VisaApplication.class, args);
+        SpringApplication.run(SpringCompetitionApplication.class, args);
     }
 
 }
