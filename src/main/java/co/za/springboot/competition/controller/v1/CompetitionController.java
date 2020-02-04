@@ -1,6 +1,6 @@
-package co.za.springboot.competition.controller;
+package co.za.springboot.competition.controller.v1;
 
-import co.za.springboot.competition.dto.CompetitionEntryDto;
+import co.za.springboot.competition.controller.v1.command.CompetitionEntryCommand;
 import co.za.springboot.competition.model.CompetitionEntry;
 import co.za.springboot.competition.service.CompetitionService;
 import org.springframework.http.HttpEntity;
@@ -13,6 +13,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Controller
 public class CompetitionController {
+
     private CompetitionService competitionService;
 
     public CompetitionController(CompetitionService competitionService) {
@@ -27,12 +28,11 @@ public class CompetitionController {
     }
 
     @PostMapping("/entry")
-    public String submit(@Valid @ModelAttribute("entry") CompetitionEntryDto entry, BindingResult bindingResult) {
+    public String submit(@Valid @ModelAttribute("entry") CompetitionEntryCommand entryCommand, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/competition/competitionform";
         }
-
-        competitionService.saveCompetitionEntry(entry);
+        competitionService.saveCompetitionEntry(entryCommand);
 
         return "/competition/competitionthanks";
     }

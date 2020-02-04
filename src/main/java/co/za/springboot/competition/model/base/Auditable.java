@@ -15,6 +15,10 @@ import java.util.Date;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
 
+
+/**
+ * Entities that require auditing can extend Auditable and can inherit auditing fields
+ */
 @Getter(AccessLevel.PROTECTED)
 @Setter(AccessLevel.PROTECTED)
 @MappedSuperclass
